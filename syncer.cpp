@@ -21,6 +21,7 @@ void Syncer::downloadList()
 
 void Syncer::compair()
 {
+    quint32 uploadSize = 0;
     QSet<QString> filesToUpload;
     QSet<QString> filesToRemoteDelete;
 
@@ -32,6 +33,7 @@ void Syncer::compair()
 
         if (localInfo.hash != remoteInfo.hash) {
             filesToUpload.insert(f);
+            uploadSize += localInfo.size;
         }
     }
     foreach (auto f, remoteList->keys()) {
@@ -65,7 +67,7 @@ void Syncer::start()
     localList = FolderInfo::fromDir(m_folderPath);
     listFoundOnServer = false;
     int ok;
-    emit status("Connecting to host");
+    emit log("Connecting to host");
     ftp->connectToHost(m_host);
     ftp->login(m_username, m_password);
     ftp->list();

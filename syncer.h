@@ -67,7 +67,7 @@ public slots:
     void on_ftp_done(bool);
 
 signals:
-    void status(const QString &status);
+    void log(const QString &status);
 
     void dataFileNameChanged(QString dataFileName);
     void folderPathChanged(QString folderPath);
