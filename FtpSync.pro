@@ -30,7 +30,8 @@ SOURCES += \
     3rdparty/qftp/qurlinfo.cpp \
     folderchecksum.cpp \
     syncer.cpp \
-    dialog.cpp
+    dialog.cpp \
+    filesmodel.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -38,7 +39,8 @@ HEADERS += \
     3rdparty/qftp/qurlinfo.h \
     folderchecksum.h \
     syncer.h \
-    dialog.h
+    dialog.h \
+    filesmodel.h
 
 FORMS += \
         mainwindow.ui \
